@@ -60,7 +60,7 @@ gsutil cp -p  gs://mit-driverless-open-source/yolov3-training/sample-yolov3.weig
 
 YoloV3-tiny initial weights:
 ```
-gsutil cp =p gs://mit-driverless-open-source/yolov3-training/sample-yolov3-tiny.weights ./dataset/
+gsutil cp -p gs://mit-driverless-open-source/yolov3-training/sample-yolov3-tiny.weights ./dataset/
 ```
 
 ##### Download manually (Optional)
