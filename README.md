@@ -1,11 +1,11 @@
 # YOLOv3_MIT
 
 
-### Description
+## Description
 
 The repo is originally forked from https://github.com/ultralytics/yolov3 and contains inference and training code for YOLOv3 in PyTorch.
 
-### Requirements:
+## Requirements:
 
 * CUDA>=10.1
 * python==3.6
