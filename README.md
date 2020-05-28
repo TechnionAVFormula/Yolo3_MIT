@@ -81,13 +81,13 @@ You can download image dataset and label csv from the link below and unzip them 
 #### 1.2 Environment Setup (Optional)
 
 ```
-sudo python3 setup.py build develop
+sudo python setup.py build develop
 ```
 
 ### 2.Training
 
 ```
-python3 train.py --model_cfg=model_cfg/yolo_baseline.cfg --weights_path=dataset/sample-yolov3.weights
+python train.py --model_cfg=model_cfg/yolo_baseline.cfg --weights_path=dataset/sample-yolov3.weights
 ```
 
 Once you've finished training, you can access the weights file in `./outputs/`
@@ -97,7 +97,7 @@ Once you've finished training, you can access the weights file in `./outputs/`
 ### 3.Inference
 
 ```
-python3 detect.py --model_cfg=<path to cfg file> --target_path=<path to an image or video> --weights_path=<path to your trained weights file>
+python detect.py --model_cfg=<path to cfg file> --target_path=<path to an image or video> --weights_path=<path to your trained weights file>
 ```
 
 Once you've finished inference, you can access the result in `./outputs/visualization/`
@@ -110,20 +110,20 @@ Go into the `objective()` function of `train_hyper.py` edit your custom search
 
 Then launch your Bayesian hyperparameter search
 ```
-python3 train_hyper.py --model_cfg=<path to cfg file> --study_name=<give it a proper name>
+python train_hyper.py --model_cfg=<path to cfg file> --study_name=<give it a proper name>
 ```
 
 #### Convert .weights to .onnx manually
 
 Though our training scrip will do automatical .weights->.onnx conversion, you can always do it manually
 ```
-python3 yolo2onnx.py --cfg_name=<path to your cfg file> --weights_name=<path to your .weights file>
+python yolo2onnx.py --cfg_name=<path to your cfg file> --weights_name=<path to your .weights file>
 ```
 
 #### Splits your own csv file 
 
 ```
-python3 generate_kmeans_dataset_csvs.py --input_csvs=<path to your csv file that contains all the label> --dataset_path=<path to your image dataset>
+python generate_kmeans_dataset_csvs.py --input_csvs=<path to your csv file that contains all the label> --dataset_path=<path to your image dataset>
 ```
 
 
