@@ -60,7 +60,7 @@ gsutil cp -p  gs://mit-driverless-open-source/yolov3-training/sample-yolov3.weig
 
 YoloV3-tiny initial weights:
 ```
-gsutil cp =p gs://mit-driverless-open-source/yolov3-training/sample-yolov3-tiny.weights ./dataset/
+gsutil cp -p gs://mit-driverless-open-source/yolov3-training/sample-yolov3-tiny.weights ./dataset/
 ```
 
 ##### Download manually (Optional)
@@ -137,20 +137,20 @@ Go into the `objective()` function of `train_hyper.py` edit your custom search
 
 Then launch your Bayesian hyperparameter search
 ```
-python3 train_hyper.py --model_cfg=<path to cfg file> --study_name=<give it a proper name>
+python train_hyper.py --model_cfg=<path to cfg file> --study_name=<give it a proper name>
 ```
 
 #### Convert .weights to .onnx manually
 
 Though our training scrip will do automatical .weights->.onnx conversion, you can always do it manually
 ```
-python3 yolo2onnx.py --cfg_name=<path to your cfg file> --weights_name=<path to your .weights file>
+python yolo2onnx.py --cfg_name=<path to your cfg file> --weights_name=<path to your .weights file>
 ```
 
 #### Splits your own csv file 
 
 ```
-python3 generate_kmeans_dataset_csvs.py --input_csvs=<path to your csv file that contains all the label> --dataset_path=<path to your image dataset>
+python generate_kmeans_dataset_csvs.py --input_csvs=<path to your csv file that contains all the label> --dataset_path=<path to your image dataset>
 ```
 
 
