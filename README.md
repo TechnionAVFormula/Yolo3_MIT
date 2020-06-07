@@ -81,26 +81,53 @@ You can download image dataset and label csv from the link below and unzip them 
 #### 1.2 Environment Setup (Optional)
 
 ```
-sudo python3 setup.py build develop
+sudo python setup.py build develop
 ```
 
 ### 2.Training
 
 ```
-python3 train.py --model_cfg=model_cfg/yolo_baseline.cfg --weights_path=dataset/sample-yolov3.weights
+python train.py --model_cfg=model_cfg/yolo_baseline.cfg --weights_path=dataset/sample-yolov3.weights
 ```
 
 Once you've finished training, you can access the weights file in `./outputs/`
 
 (Optional: We also provide tiny yolo cfg, with no evaluation metrics available)
 
-### 3.Inference
+### 3.1 Inference
 
 ```
-python3 detect.py --model_cfg=<path to cfg file> --target_path=<path to an image or video> --weights_path=<path to your trained weights file>
+python detect.py --model_cfg=<path to cfg file> --target_path=<path to an image or video> --weights_path=<path to your trained weights file>
 ```
 
 Once you've finished inference, you can access the result in `./outputs/visualization/`
+
+### 3.2 Tests
+#### test_visualization.py
+Test for checking the cone detection quality.
+
+1. Preapare an Imgaes testset and add them to a new folder in `./dataset/YOLO_Testset/`
+2. Add your weights to the weights folder.
+3. Open a new folder in `./outputs/visualization/` for the outout images
+4. Run in terminal:
+
+```
+python test_visualization.py --model_cfg=<path to cfg file> --target_path=<path to images file> --weights_path=<path to your trained weights file> --output_path=<path to your output images folder>
+```
+for example:
+```
+python test_visualization.py --model_cfg='model_cfg/yolo_baseline.cfg' --target_path='dataset/YOLO_Testset' --weights_path='weights/YOLOv3_1.weights' --output_path='outputs/visualization/out_test_1/'
+```
+#### test_performance.py
+Test for checking the cone detection performance.
+
+1. Preapare an Imgaes testset and add them to a new folder in `./dataset/YOLO_Testset/`
+2. Add your weights to the weights folder.
+3. Run in terminal:
+
+```
+python test_performance.py --model_cfg=<path to cfg file> --target_path=<path to images file> --weights_path=<path to your trained weights file>
+```
 
 #### Run Bayesian hyperparameter search
 
