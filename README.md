@@ -104,7 +104,7 @@ Once you've finished inference, you can access the result in `./outputs/visualiz
 
 ### 4 Tests
 #### test_performance.py
-Main test for camparing Models cone detection performance.
+Main test for comparing Models cone detection performance.
 Test the detection duration, precision score and recall score over the test set.
 Output each test image with the predicted bounding boxes and scores.
 
